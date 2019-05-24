@@ -1,0 +1,10 @@
+{
+  "devToolsPort": 19002,
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 6373,
+  "expoServerNgrokUrl": "https://ep-kdk.shopaniuk.exprisonerapp.exp.direct",
+  "packagerNgrokUrl": "https://packager.ep-kdk.shopaniuk.exprisonerapp.exp.direct",
+  "ngrokPid": 6393,
+  "webpackServerPort": null
+}
