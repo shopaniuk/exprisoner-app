@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View,
 } from 'react-native';
+import MapView from 'react-native-maps'
 
 export default class MapScreen extends React.Component {
   static navigationOptions = {
@@ -9,14 +10,11 @@ export default class MapScreen extends React.Component {
     headerTitleStyle: { fontWeight: 'bold', fontSize: 25},
     headerTintColor: '#fff',
   };
-
   render() {
     return (
-        <View style={styles.container}>
-            <Text style={styles.item}>
-                Map soon to come
-            </Text>
-        </View>
+        <MapView style = {{flex: 1}} region = {{latitude: 33.166039, longitude:
+              -117.337929,latitudeDelta: 0.0922, longitudeDelta: 0.0421}} showsUserLocation={true}
+        />
     );
   }
 }
