@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View,
 } from 'react-native';
+import Resources from './Resources/ResourceTile';
 
 export default class ResourcesScreen extends React.Component {
   static navigationOptions = {
@@ -16,6 +17,7 @@ export default class ResourcesScreen extends React.Component {
             <Text style={styles.item}>
                 Resources!
             </Text>
+            <Resources resource = {resource}/>
         </View>
     );
   }
@@ -24,13 +26,24 @@ export default class ResourcesScreen extends React.Component {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      paddingTop: 22,
+      paddingTop: 10,
       backgroundColor: '#fff',
     },
     item: {
-      padding: 20,
+      padding: 10,
       fontSize: 18,
       height: 44,
       textAlign: 'center',
     },
 });
+
+
+
+
+//This will serve as Props within the Resource Component.  I iwll pass it the presentional comps through props
+const resource = {
+  image: './newlife_second_chance_outreach.png',
+  text: "NewLife Second Chance Outreach",
+  url: "https://www.nlscoinc.org/"
+
+}
