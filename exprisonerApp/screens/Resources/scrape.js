@@ -24,7 +24,7 @@ request('https://helpforfelons.org/reentry-programs-ex-offenders-state/', (error
         for(let i = 1; i < 53; i++) {
             if (4 <= (strongTag[i].children[0]['data']).length && (strongTag[i].children[0]['data']).length <= 15) {
                 // This conditional effectively captures the state names.. Still Missing Rhode Island?
-                // Will create workaround for Rhode Island Tag... Should alphabetize
+                // Created workaround for Rhode Island
 
                 // Following if conditional dodges Alabama's weird formatting issue
                 let links;
@@ -34,8 +34,11 @@ request('https://helpforfelons.org/reentry-programs-ex-offenders-state/', (error
                      links = assignLinks(strongTag[i].parent.next, []);
                 }
                 const state = (strongTag[i].children[0]['data']).trim();
+                // The following creates a library with states as keys and their linked objects as values. 
+                // Either going to send this to the cloud or store locally? 
+                // Might want to right some logic in that runs this script on app start and stores the dictionary local storage
                 info[state] = links;
-                //console.log(infoAdd);
+                
                 
             }
         }
@@ -59,9 +62,10 @@ function assignLinks(curr, linkList) {
     let url, title, desc, linkListNode;
     // Pass in parent.next.. Should start with a non <h3> tag
     // If cond checks the tag.  If its nonexistant or not a <p> tag return the list
+    // This could cause me to miss some important information.  I may change this logic
     if(curr == null || curr.name != 'p') {
+        // Assumes that the parse has been finished. Returns the list 
         // Don't record Don't recur
-        //console.log(linkList);
         return linkList;
     // Else if (it isn't structured to include a url href link) -> Skip it
     } else if (!curr.children[0] || !curr.children[0].attribs || !curr.children[0].attribs.href ) {

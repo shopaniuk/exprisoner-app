@@ -2,6 +2,7 @@ import React from 'react';
 import { Image, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View,
 } from 'react-native';
 import Resources from './Resources/ResourceTile';
+import ResList from './Resources/ResourceList'
 
 export default class ResourcesScreen extends React.Component {
   static navigationOptions = {
@@ -11,12 +12,23 @@ export default class ResourcesScreen extends React.Component {
     headerTintColor: "#fff",
   };
 
+  constructor(props){
+    super(props);
+
+    this.state = {
+      location : "Georgia"
+    }
+  }
+
+  
+
   render() {
     return (
         <View style={styles.container}>
             <Text style={styles.item}>
                 Resources!
             </Text>
+            <ResList links = {Washington} ></ResList>
             <Resources resource = {resource}/>
         </View>
     );
@@ -47,3 +59,15 @@ const resource = {
   url: "https://www.nlscoinc.org/"
 
 }
+const Washington = [ { url:
+  'http://www.washingtonci.com/about-ci/offender-re-entry.html',
+ title: 'DOC Reentry',
+ desc: 'Information about the state run reentry program' },
+{ url: 'http://4people.org/Reentry/Reentry.html',
+ title: 'Ex-offender links by county',
+ desc: 'Very helpful' },
+{ url:
+  'https://www.sbctc.edu/colleges-staff/programs-services/prisons/',
+ title: 'Next Steps Re-Entry Program',
+ desc:
+  'A pathway from prison to higher education  Snohomish CountyWA. Edmonds Community College 20000 68th AveW LynnwoodWA 98036' } ]
