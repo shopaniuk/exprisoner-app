@@ -1,31 +1,35 @@
 import React from 'react';
 import { Image, FlatList, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View,
 } from 'react-native';
+import call from 'react-native-phone-call';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
-      title: 'Help',
+      title: 'Call',
       headerStyle: { backgroundColor: '#e5d982' },
       headerTitleStyle: { fontWeight: 'bold', fontSize: 25},
       headerTintColor: "#fff",
   };
 
+
+
+
   render() {
    return (
        <View style={styles.container}>
-         <FlatList
-           data={[
-             {key: 'Everything about Credit Cards'},
-             {key: 'How to navigate the Internet'},
-             {key: 'What is Social Media'}
 
-           ]}
-           renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
-         />
        </View>
    );
  }
 }
+//Ok this is just a placeholder for now, its gonna randomly choose a number from db
+const args = {
+  number: '8164018488', // String value with the number to call
+  prompt: true 
+}
+
+//Just gotta bind an onClick to this badboy
+call(args).catch(console.error)
 
 const styles = StyleSheet.create({
  container: {
